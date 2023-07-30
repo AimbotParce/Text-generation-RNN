@@ -44,7 +44,6 @@ def main():
     vocab = getVocab()
 
     word2id = tf.keras.layers.StringLookup(vocabulary=vocab, mask_token=None)
-    id2word = lambda x: vocab[x] if x < len(vocab) else "[oov]"
 
     # Convert mails to ids
     mailDataset = mailDataset.map(lambda mail: word2id(mail))
